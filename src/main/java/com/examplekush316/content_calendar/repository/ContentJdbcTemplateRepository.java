@@ -56,7 +56,7 @@ public class ContentJdbcTemplateRepository {
 
     public Content getContent(int id) {
         String sql = "SELECT * FROM Content WHERE id=?";
-        Content content = jdbcTemplate.queryForObject(sql, new Object[]{id}, ContentJdbcTemplateRepository::mapRow);
+        Content content = jdbcTemplate.queryForObject(sql, ContentJdbcTemplateRepository::mapRow, id);
         return content;
     }
 }
